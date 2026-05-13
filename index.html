@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Plan: May → Autumn 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a2e;
+    --soft: #f5f3ee;
+    --accent: #c85a2a;
+    --accent2: #2a7a5a;
+    --muted: #8a8070;
+    --border: #e0dbd0;
+    --card: #ffffff;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--soft);
+    color: var(--ink);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* Header */
+  header {
+    background: var(--ink);
+    color: white;
+    padding: 3rem 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.15;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 30%;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    background: var(--accent2);
+    opacity: 0.12;
+  }
+  header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    line-height: 1.2;
+    position: relative;
+    z-index: 1;
+  }
+  header p {
+    margin-top: 0.5rem;
+    color: rgba(255,255,255,0.55);
+    font-size: 0.9rem;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Layout */
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 1.25rem 4rem;
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem 1.75rem;
+    margin: 2rem 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .toc h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+  .toc ol {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.35rem 1.5rem;
+  }
+  @media (max-width: 500px) { .toc ol { grid-template-columns: 1fr; } }
+  .toc li { counter-increment: toc; }
+  .toc a {
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.2rem 0;
+    transition: color 0.2s;
+  }
+  .toc a::before {
+    content: counter(toc, decimal-leading-zero);
+    font-size: 0.7rem;
+    color: var(--accent);
+    font-weight: 600;
+    min-width: 1.5rem;
+  }
+  .toc a:hover { color: var(--accent); }
+
+  /* Sections */
+  section {
+    margin-top: 2.5rem;
+    scroll-margin-top: 1.5rem;
+  }
+  section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  section h2 .icon {
+    width: 28px; height: 28px;
+    background: var(--accent);
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+  section h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 1.25rem 0 0.5rem;
+    color: var(--accent2);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.85rem;
+  }
+  p { margin-bottom: 0.75rem; }
+  ul, ol { padding-left: 1.4rem; margin-bottom: 0.75rem; }
+  li { margin-bottom: 0.3rem; }
+  strong { font-weight: 600; }
+  em { font-style: italic; color: var(--muted); }
+
+  /* Cards */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    margin: 1rem 0;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  }
+  .card-accent {
+    border-left: 3px solid var(--accent);
+  }
+  .card-green {
+    border-left: 3px solid var(--accent2);
+  }
+
+  /* Five things */
+  .five-things { list-style: none; padding: 0; }
+  .five-things li {
+    display: flex;
+    gap: 1rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .five-things li:last-child { border-bottom: none; }
+  .five-things .num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    color: var(--accent);
+    line-height: 1;
+    min-width: 1.5rem;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.9rem;
+    background: var(--card);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+  }
+  th {
+    background: var(--ink);
+    color: white;
+    padding: 0.7rem 1rem;
+    text-align: left;
+    font-weight: 500;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  td {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #faf9f6; }
+  td:first-child { font-weight: 500; }
+
+  /* Macros table highlight */
+  .macro-rest { color: var(--muted); }
+  .macro-train { color: var(--accent2); font-weight: 600; }
+
+  /* Checklist */
+  .checklist { list-style: none; padding: 0; }
+  .checklist li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+  }
+  .checklist li:last-child { border-bottom: none; }
+  .checklist .tick {
+    width: 22px; height: 22px;
+    background: var(--accent2);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    font-size: 0.7rem;
+    flex-shrink: 0;
+  }
+
+  /* Expect grid */
+  .expect-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
+  @media (max-width: 500px) { .expect-grid { grid-template-columns: 1fr; } }
+  .expect-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+  }
+  .expect-card h4 {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .expect-card ul { padding-left: 1.2rem; font-size: 0.88rem; }
+  .expect-card li { margin-bottom: 0.25rem; }
+
+  /* Back to top */
+  .back-top {
+    display: inline-block;
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    transition: all 0.2s;
+  }
+  .back-top:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+
+  /* Highlight box */
+  .highlight {
+    background: #fff8f5;
+    border: 1px solid #f0d5c8;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin: 0.75rem 0;
+    font-size: 0.92rem;
+  }
+  .highlight strong { color: var(--accent); }
+
+  /* Shopping checklist */
+  .shop-list { list-style: none; padding: 0; }
+  .shop-list li { padding: 0.45rem 0; border-bottom: 1px solid var(--border); }
+  .shop-list li:last-child { border-bottom: none; }
+  .shop-list label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-size: 0.93rem;
+  }
+  .shop-list input[type="checkbox"] {
+    width: 18px; height: 18px;
+    accent-color: var(--accent2);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .shop-list input:checked + span,
+  .shop-list label:has(input:checked) {
+    text-decoration: line-through;
+    color: var(--muted);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>My Plan<br>May → Autumn 2026</h1>
+  <p>Living document — updated as we go &nbsp;·&nbsp; v4 &nbsp;·&nbsp; Last updated May 13, 2026</p>
+</header>
+
+<div class="container">
+
+  <!-- TOC -->
+  <nav class="toc">
+    <h2>Contents</h2>
+    <ol style="counter-reset: toc;">
+      <li><a href="#five-things">The 5 Things to Know</a></li>
+      <li><a href="#stats">Current Stats</a></li>
+      <li><a href="#expect">What to Expect by End of July</a></li>
+      <li><a href="#creatine">Creatine</a></li>
+      <li><a href="#targets">Daily Targets</a></li>
+      <li><a href="#habits">The Two Non-Negotiable Habits</a></li>
+      <li><a href="#lunches">Work Lunches</a></li>
+      <li><a href="#training">Training Plan</a></li>
+      <li><a href="#progress">How to Measure Progress</a></li>
+      <li><a href="#goodday">What a Good Day Looks Like</a></li>
+      <li><a href="#mounjaro">The Mounjaro Transition</a></li>
+      <li><a href="#shopping">Weekly Shopping Checklist</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1. Five Things -->
+  <section id="five-things">
+    <h2><span class="icon">★</span> The 5 Things to Know</h2>
+    <ul class="five-things">
+      <li><span class="num">1</span><span><strong>Goal is body composition, not weight</strong> — more muscle, less fat. The scale is not the main measure.</span></li>
+      <li><span class="num">2</span><span><strong>Muscle building raises your resting metabolism</strong> — making it easier to stay lean after Mounjaro.</span></li>
+      <li><span class="num">3</span><span><strong>Not skipping meals is as important as what you eat</strong> — especially for your patterns around stress and overwhelm.</span></li>
+      <li><span class="num">4</span><span><strong>The emergency bag and 9pm supper are your two most important habits</strong> — everything else builds on these.</span></li>
+      <li><span class="num">5</span><span><strong>Consistency over perfection</strong> — 3 weights sessions a week done imperfectly beats a perfect plan abandoned.</span></li>
+    </ul>
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+  <!-- 2. Stats -->
+  <section id="stats">
+    <h2><span class="icon">⚖</span> Current Stats</h2>
+    <div class="card card-accent">
+      <p><strong>Weight:</strong> 87kg (May 13, 2026)</p>
+      <p><strong>Note:</strong> ~2–3kg of this is creatine water retention. Real weight closer to 84–85kg.</p>
+      <p><strong>Lost:</strong> 14kg on Mounjaro over 4.5 months — a significant achievement.</p>
+    </div>
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+  <!-- 3. Expect -->
+  <section id="expect">
+    <h2><span class="icon">→</span> What to Expect by End of July</h2>
+    <div class="expect-grid">
+      <div class="expect-card">
+        <h4>Strength</h4>
+        <ul>
+          <li>Noticeably stronger on all lifts you already do</li>
+          <li>Possibly doubling starting weights</li>
+        </ul>
+      </div>
+      <div class="expect-card">
+        <h4>Body</h4>
+        <ul>
+          <li>Visible arm &amp; shoulder muscle in 4–6 weeks</li>
+          <li>Legs rebuilding</li>
+          <li>Belt 1–2 notches looser</li>
+        </ul>
+      </div>
+      <div class="expect-card">
+        <h4>Weight</h4>
+        <ul>
+          <li>May not drop dramatically</li>
+          <li>Realistic: 83–85kg by end of July</li>
+          <li>Body composition matters more than the number</li>
+        </ul>
+      </div>
+      <div class="expect-card">
+        <h4>Energy &amp; Mood</h4>
+        <ul>
+          <li>Exercise already helps — protect this above everything</li>
+          <li>More stable energy from not skipping meals</li>
+        </ul>
+      </div>
+    </div>
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+  <!-- 4. Creatine -->
+  <section id="creatine">
+    <h2><span class="icon">💊</span> Creatine — Keep Taking It</h2>
+    <div class="card card-green">
+      <p><strong>Yes. Continue.</strong> 3–5g daily, any time.</p>
+      <p>The water retention is temporary and will stabilise. The muscle and strength benefits are real and support exactly what you're trying to do. Bonus: proven cognitive benefits relevant for ADHD.</p>
+    </div>
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+  <!-- 5. Targets -->
+  <section id="targets">
+    <h2><span class="icon">◎</span> Daily Targets</h2>
+    <p>Don't count obsessively. Use this as a rough guide.</p>
+    <table>
+      <thead>
+        <tr><th></th><th>Rest days</th><th>Training days</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Calories</td><td>1,800</td><td>2,100</td></tr>
+        <tr><td>Protein</td><td>120g</td><td>140g</td></tr>
+        <tr><td>Carbs</td><td>130–160g</td><td>180–220g</td></tr>
+        <tr><td>Fat</td><td>55–65g</td><td>60–70g</td></tr>
+        <tr><td>Fibre</td><td>25–30g</td><td>25–30g</td></tr>
+      </tbody>
+    </table>
+    <div class="highlight">
+      <strong>One question to ask at every meal:</strong> Is there protein in this? If yes — you're probably on track.
+    </div>
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+  <!-- 6. Habits -->
+  <section id="habits">
+    <h2><span class="icon">⚑</span> The Two Non-Negotiable Habits</h2>
+
+    <h3>1. The Emergency Bag — Always With You</h3>
+    <p>Restock weekly. Treat like charging your phone.</p>
+
+    <h3>Substantial food — standin meals</h3>
+    <table>
+      <thead><tr><th>Item</th><th>Protein</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Squeaky Bean pastrami pack</td><td>20g</td><td>No prep, robust, tolerates well</td></tr>
+        <tr><td>Hard boiled eggs (2)</td><td>12g</td><td>Fine unrefrigerated for a full day</td></tr>
+        <tr><td>Cottage cheese small pot</td><td>14g</td><td>Fine unrefrigerated a few hours</td></tr>
+        <tr><td>Rice cakes (small pack)</td><td>2g</td><td>Pairs with cottage cheese or nut butter</td></tr>
+        <tr><td>Cheese portion (Babybel etc.)</td><td>5g</td><td>No refrigeration needed</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Snacks and emergency backup</h3>
+    <table>
+      <thead><tr><th>Item</th><th>Protein</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Protein bar (Nutramino, Grenade etc.)</td><td>20g+</td><td>Crisis calories</td></tr>
+        <tr><td>Nakd or Larabar bar</td><td>4g</td><td>Better than a Mars bar</td></tr>
+        <tr><td><strong>Water bottle</strong></td><td>—</td><td>Non-negotiable</td></tr>
+        <tr><td><strong>Protein powder sachet</strong></td><td>25g</td><td>Add to water or milk anywhere</td></tr>
+        <tr><td><strong>Electrolyte tablet or sachet</strong></td><td>—</td><td>One per day in water bottle</td></tr>
+      </tbody>
+    </table>
+
+    <div class="highlight">
+      <strong>Why electrolytes matter for you:</strong> Mounjaro causes electrolyte loss, creatine increases water needs, and you don't reliably feel thirst. Low electrolytes cause fatigue, headaches and muscle cramps. Daily electrolyte tablet (LMNT, Nuun, or supermarket own-brand). Look for sodium, potassium and magnesium.
+    </div>
+
+    <div class="card card-accent" style="margin-top:1rem;">
+      <strong>The rule:</strong> Some days you won't want the lunch you brought, or there won't be anything suitable nearby. The substantial items above mean you can always make a real meal from your bag.
+    </div>
+
+    <h3>2. The 9pm Supper Rule</h3>
+    <div class="card card-green">
+      <p>Going to bed hungry = Kit Kats and crisps at midnight. Eat something at 9pm. Every night.</p>
+      <ul>
+        <li>Greek yogurt + nuts or honey</li>
+        <li>Cottage cheese + anything</li>
+        <li>Rye bread + nut butter</li>
+        <li>Small bowl of leftovers</li>
+      </ul>
+    </div>
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+  <!-- 7. Lunches -->
+  <section id="lunches">
+    <h2><span class="icon">🍱</span> Work Lunches</h2>
+    <p>Eating out at £10 a time is unsustainable. Batch cooking largely doesn't work in practice.</p>
+    <div class="card card-green">
+      <p><strong><a href="https://ammiskitchensheffield.org/order" target="_blank" style="color:var(--accent2)">Ammi's Kitchen Sheffield</a></strong> — local kitchen run by women from different cultures cooking authentic family recipes. All vegetarian, naturally high fibre, rotating menu (Punjabi, Bengali, Sri Lankan, Iraqi and more). £16–18 BYO or £20 delivery. One order = 3–4 portions = lunches for most of the week.</p>
+    </div>
+    <div class="highlight">
+      <strong>Protein reality:</strong> These meals are carb and fibre rich but moderate protein. Always supplement with cottage cheese, hard boiled eggs, or a Squeaky Bean pack. This combination hits your protein targets and costs well under £10 a day.
+    </div>
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+  <!-- 8. Training -->
+  <section id="training">
+    <h2><span class="icon">🏋</span> Training — 5 Days a Week</h2>
+
+    <h3>The Week</h3>
+    <table>
+      <thead><tr><th>Days</th><th>Activity</th></tr></thead>
+      <tbody>
+        <tr><td>3 days</td><td>Weights</td></tr>
+        <tr><td>2 days</td><td>Run or swim (your choice each week)</td></tr>
+        <tr><td>2 days</td><td>Rest</td></tr>
+      </tbody>
+    </table>
+    <p>Swap days freely. Goal is 3 weights + 2 cardio across the week — not a rigid schedule.</p>
+
+    <h3>Weights — What You Already Know</h3>
+    <div class="card">
+      <ul>
+        <li>Chest press</li>
+        <li>Lat pulldown</li>
+        <li>Deadlift</li>
+        <li>Squats</li>
+        <li><strong>Bicep curl ← always in every session</strong></li>
+        <li><strong>Tricep extension ← always in every session</strong></li>
+        <li>Most machines</li>
+      </ul>
+      <p style="margin-top:0.75rem"><strong>Do 3 sets of 10 reps on each.</strong> When all 3 sets feel comfortable, add a small amount of weight next session.</p>
+    </div>
+
+    <h3>The One New Exercise to Add First</h3>
+    <div class="card card-accent">
+      <p><strong>Seated Cable Row</strong> — works your back, essential for posture and upper body balance.</p>
+      <p>▶️ <a href="https://www.youtube.com/watch?v=vwHG9Jfu4sw" target="_blank" style="color:var(--accent)">Watch: How to do the Seated Cable Row (2 min tutorial)</a></p>
+      <p>Sitting down, pulling a handle toward your stomach on a cable machine. Ask gym staff to point you to it first time. Once comfortable (2–3 weeks), we'll add the next one.</p>
+    </div>
+
+    <h3>Sample Weights Session (~45 min)</h3>
+    <table>
+      <thead><tr><th>Exercise</th><th>Sets</th><th>Reps</th></tr></thead>
+      <tbody>
+        <tr><td>Chest press</td><td>3</td><td>10</td></tr>
+        <tr><td>Lat pulldown</td><td>3</td><td>10</td></tr>
+        <tr><td>Leg press or squats</td><td>3</td><td>10</td></tr>
+        <tr><td><strong>Bicep curl</strong></td><td>3</td><td>10</td></tr>
+        <tr><td><strong>Tricep extension</strong></td><td>3</td><td>10</td></tr>
+        <tr><td>Seated cable row (new)</td><td>3</td><td>10</td></tr>
+        <tr><td>Deadlift (once per week)</td><td>3</td><td>8</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Cardio</h3>
+    <div class="card">
+      <p><strong>Running:</strong> Any pace, any distance. 30 min is plenty.</p>
+      <p><strong>Swimming:</strong> Great recovery option. Any stroke. 30–45 min.</p>
+      <p>If very sore from weights, swim instead of run — much easier on the body.</p>
+    </div>
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+  <!-- 9. Progress -->
+  <section id="progress">
+    <h2><span class="icon">📈</span> How to Measure Progress</h2>
+    <p>Ignore daily weight swings. Check these instead:</p>
+    <table>
+      <thead><tr><th>What</th><th>How often</th><th>Looking for</th></tr></thead>
+      <tbody>
+        <tr><td>Waist measurement</td><td>Every 2 weeks</td><td>Gradual decrease</td></tr>
+        <tr><td>Weight</td><td>Once a week, same time</td><td>4-week trend not daily</td></tr>
+        <tr><td>Weights used in gym</td><td>Each session</td><td>Gradually going up</td></tr>
+        <tr><td>Belt notch</td><td>Monthly</td><td>The honest truth</td></tr>
+        <tr><td>Photo at check-in</td><td>Every 2 weeks</td><td>Visible muscle, shape, posture</td></tr>
+      </tbody>
+    </table>
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+  <!-- 10. Good Day -->
+  <section id="goodday">
+    <h2><span class="icon">✓</span> What a Good Day Looks Like</h2>
+    <ul class="checklist">
+      <li><span class="tick">✓</span> Ate 3 times</li>
+      <li><span class="tick">✓</span> Protein at each meal</li>
+      <li><span class="tick">✓</span> Bag stocked, water bottle with me</li>
+      <li><span class="tick">✓</span> Did planned exercise OR made a sensible swap</li>
+      <li><span class="tick">✓</span> Had something at 9pm</li>
+    </ul>
+    <p style="margin-top:1rem; color: var(--muted); font-style: italic;">Not every day will look like this. The bag and the 9pm supper protect you on the hard days.</p>
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+  <!-- 11. Mounjaro -->
+  <section id="mounjaro">
+    <h2><span class="icon">→</span> The Mounjaro Transition (Autumn)</h2>
+    <p>By the time you come off, these should feel automatic not effortful:</p>
+    <div class="card card-green">
+      <ul>
+        <li>Eating 3 times a day</li>
+        <li>High protein meals that feel normal</li>
+        <li>Exercise you look forward to</li>
+        <li>Emergency bag as second nature</li>
+        <li>9pm supper preventing evening binges</li>
+      </ul>
+    </div>
+    <div class="highlight" style="margin-top:1rem">
+      More muscle now = higher resting metabolism = more forgiving when Mounjaro appetite suppression is gone.
+    </div>
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+  <!-- 12. Shopping -->
+  <section id="shopping">
+    <h2><span class="icon">🛒</span> Weekly Shopping Checklist</h2>
+    <p>Everything you need to keep the grab bag stocked. Tick off as you shop — resets each visit.</p>
+
+    <h3>Grab Bag — Substantial Food</h3>
+    <div class="card">
+      <ul class="shop-list">
+        <li><label><input type="checkbox"> Squeaky Bean pastrami packs (2–3)</label></li>
+        <li><label><input type="checkbox"> Eggs (for hard boiling — do a batch at start of week)</label></li>
+        <li><label><input type="checkbox"> Cottage cheese small pots (3–4)</label></li>
+        <li><label><input type="checkbox"> Rice cakes (one pack lasts the week)</label></li>
+        <li><label><input type="checkbox"> Babybel or cheese portions (4–5)</label></li>
+      </ul>
+    </div>
+
+    <h3>Grab Bag — Snacks &amp; Drinks</h3>
+    <div class="card">
+      <ul class="shop-list">
+        <li><label><input type="checkbox"> Protein bars — Nutramino, Grenade or similar (4–5)</label></li>
+        <li><label><input type="checkbox"> Nakd or Larabar bars (3–4)</label></li>
+        <li><label><input type="checkbox"> Protein powder sachets (check stock)</label></li>
+        <li><label><input type="checkbox"> Electrolyte tablets or sachets (LMNT, Nuun, or supermarket own-brand)</label></li>
+      </ul>
+    </div>
+
+    <h3>Breakfast &amp; 9pm Supper</h3>
+    <div class="card">
+      <ul class="shop-list">
+        <li><label><input type="checkbox"> Greek yogurt (large pot)</label></li>
+        <li><label><input type="checkbox"> Cottage cheese (large tub for home)</label></li>
+        <li><label><input type="checkbox"> Rye bread (seeds and raisins)</label></li>
+        <li><label><input type="checkbox"> Nut butter (peanut or almond)</label></li>
+        <li><label><input type="checkbox"> Honey or honeycomb</label></li>
+        <li><label><input type="checkbox"> Mixed nuts (small bags for bag, large for home)</label></li>
+      </ul>
+    </div>
+
+    <h3>Supplements</h3>
+    <div class="card">
+      <ul class="shop-list">
+        <li><label><input type="checkbox"> Creatine (check stock — 3–5g daily)</label></li>
+        <li><label><input type="checkbox"> Protein powder (check stock)</label></li>
+        <li><label><input type="checkbox"> Electrolytes (check stock)</label></li>
+      </ul>
+    </div>
+
+    <div class="highlight" style="margin-top:1rem">
+      <strong>Tip:</strong> Hard boil 4–6 eggs at the start of the week. Keep in the fridge and grab one or two each morning when packing your bag.
+    </div>
+
+    <p style="margin-top:1rem">
+      <button onclick="document.querySelectorAll('.shop-list input').forEach(cb => cb.checked = false)" style="background:var(--ink);color:white;border:none;padding:0.5rem 1.25rem;border-radius:20px;font-family:inherit;font-size:0.85rem;cursor:pointer;">↺ Reset all</button>
+    </p>
+
+    <a href="#" class="back-top">↑ Back to top</a>
+  </section>
+
+</div>
+
+<footer>
+  Last updated: May 13, 2026 (v7) &nbsp;·&nbsp; Next review: when we have 2 weeks of data
+</footer>
+
+</body>
+</html>
